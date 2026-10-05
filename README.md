@@ -1,6 +1,6 @@
 # Groupe Omega et Partenaires
 
-Site vitrine en français construit avec Django. Il comprend une page d’accueil, une page de présentation et un formulaire de contact.
+Site vitrine en français construit avec Django. Il comprend une page d’accueil, un carrousel illustré des six domaines d’activité, une page de présentation et un formulaire de contact.
 
 ## Exécution en local
 
@@ -44,6 +44,8 @@ Variables configurées automatiquement par le Blueprint :
 
 Les requêtes HTTP sont redirigées vers HTTPS. Les cookies de session et CSRF sont réservés à HTTPS ; HSTS est activé pour un an. Render termine TLS sur son proxy et fournit l’en-tête de protocole utilisé par Django.
 
+La typographie Manrope est hébergée dans `static/fonts/` (avec sa licence OFL). Le bandeau d’accueil présente un carrousel plein écran de six photos locales, une par domaine ; il avance automatiquement toutes les 5 secondes, se commande par ses indicateurs et se met en pause au survol, au focus clavier ou lorsque le visiteur préfère réduire les animations. Les six cartes des activités restent affichées en grille sous le bandeau. Les photos proviennent d’Unsplash et sont utilisées conformément à sa [licence](https://unsplash.com/license) ; les illustrations SVG complémentaires sont dans `static/img/services/`.
+
 ### Limite importante : SQLite et l’offre gratuite
 
 Render précise que les instances gratuites sont destinées aux tests et projets personnels, pas aux applications de production. Le service se met en veille après 15 minutes sans trafic et son système de fichiers est éphémère. **La base SQLite peut être perdue lors d’une mise en veille, d’un redéploiement, d’un redémarrage ou du remplacement de l’instance.** Elle ne convient donc qu’à une démonstration sans données à conserver. Une variable `DATABASE_PATH` peut déplacer le fichier, mais ne rend pas le stockage persistant ; les disques persistants Render sont réservés aux services payants.
@@ -71,6 +73,8 @@ core/                  Pages et vues du site
 identity_digitale/     Configuration Django et sécurité
 static/                Fichiers statiques sources
 static/img/            Emblème, logo complet et favicon du groupe
+static/img/services/   Illustrations SVG originales des six activités
+static/fonts/          Police Manrope auto-hébergée et licence OFL
 templates/             Gabarit commun
 render.yaml            Blueprint de déploiement Render
 requirements.txt       Dépendances Python épinglées

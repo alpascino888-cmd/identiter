@@ -6,11 +6,31 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="relative overflow-hidden">
-    <div class="absolute inset-0 gradient-bg opacity-95"></div>
+<section class="hero-carousel relative isolate overflow-hidden bg-slate-950" data-hero-carousel aria-label="Domaines d’activité du Groupe Omega">
+    <div class="absolute inset-0" aria-hidden="true">
+        <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-btp.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" fetchpriority="high">
+        </div>
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-energie.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" loading="lazy">
+        </div>
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-mines.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" loading="lazy">
+        </div>
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-immobilier.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" loading="lazy">
+        </div>
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-negoce.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" loading="lazy">
+        </div>
+        <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+            <img src="{% static 'img/services/hero-conseil.jpg' %}" alt="" width="1600" height="978" class="h-full w-full object-cover" loading="lazy">
+        </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-blue-950/70 to-slate-950/65" aria-hidden="true"></div>
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6bTAgNHYyaDJ2LTJoLTJ6bTAtNHYyaDJ2LTJoLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
     
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-medium mb-6 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Des solutions pour vos projets
@@ -32,43 +52,79 @@
                 Nous contacter
             </a>
         </div>
+        <div class="mt-10 flex items-center justify-center gap-2" role="group" aria-label="Choisir l’image du domaine">
+            <button type="button" class="hero-dot h-2.5 w-7 rounded-full bg-white transition-all" aria-label="Afficher BTP" aria-current="true"></button>
+            <button type="button" class="hero-dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80" aria-label="Afficher Énergie" aria-current="false"></button>
+            <button type="button" class="hero-dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80" aria-label="Afficher Mines" aria-current="false"></button>
+            <button type="button" class="hero-dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80" aria-label="Afficher Immobilier" aria-current="false"></button>
+            <button type="button" class="hero-dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80" aria-label="Afficher Négoce" aria-current="false"></button>
+            <button type="button" class="hero-dot h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80" aria-label="Afficher Conseil" aria-current="false"></button>
+        </div>
     </div>
 </section>
 
 <!-- Services -->
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
-    <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-lg border border-slate-100">
-        <div class="max-w-2xl mb-8">
-            <p class="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">Nos activités</p>
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Des expertises complémentaires</h2>
-            <p class="text-slate-600">Le Groupe Omega et Partenaires intervient dans six domaines complémentaires.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">BTP</h3>
-                <p class="text-sm text-slate-600">Construction et aménagement de bâtiments privés et professionnels.</p>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">Énergie</h3>
-                <p class="text-sm text-slate-600">Des activités dédiées aux besoins du secteur de l’énergie.</p>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">Mines</h3>
-                <p class="text-sm text-slate-600">Des activités liées au secteur minier et à ses projets.</p>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">Immobilier</h3>
-                <p class="text-sm text-slate-600">Un domaine consacré aux terrains et aux biens immobiliers.</p>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">Négoce</h3>
-                <p class="text-sm text-slate-600">Une activité de négoce au service des besoins de vos projets.</p>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-5 border border-slate-100">
-                <h3 class="font-semibold text-slate-900 mb-2">Conseil</h3>
-                <p class="text-sm text-slate-600">Conseil, analyse et accompagnement autour de vos enjeux.</p>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+    <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-100">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-7">
+            <div class="max-w-2xl">
+                <p class="text-sm font-bold text-primary-600 uppercase tracking-wider mb-3">Nos activités</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Six domaines, un même engagement</h2>
+                <p class="text-slate-600 leading-relaxed">Découvrez les secteurs dans lesquels Groupe Omega et Partenaires accompagne vos projets.</p>
             </div>
         </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/btp.svg' %}" alt="Illustration d’un immeuble en construction entouré d’un chantier" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" fetchpriority="high">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">01 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">BTP</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Construction et aménagement de bâtiments privés et professionnels.</p>
+                </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/energie.svg' %}" alt="Panneaux solaires et éolienne dans un paysage ensoleillé" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">02 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Énergie</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Des activités dédiées aux besoins du secteur de l’énergie.</p>
+                </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/mines.svg' %}" alt="Engin de chantier dans un paysage minier à ciel ouvert" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">03 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Mines</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Des activités liées au secteur minier et à ses projets.</p>
+                </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/immobilier.svg' %}" alt="Ensemble de bâtiments résidentiels et d’arbres" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">04 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Immobilier</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Un domaine consacré aux terrains et aux biens immobiliers.</p>
+                </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/negoce.svg' %}" alt="Caisses et conteneur de marchandises prêts à être expédiés" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">05 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Négoce</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Une activité de négoce au service des besoins de vos projets.</p>
+                </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src="{% static 'img/services/conseil.svg' %}" alt="Consultants collaborant devant un tableau de bord analytique" width="1400" height="900" class="aspect-[14/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
+                <div class="p-5 sm:p-6">
+                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary-600 mb-2">06 / 06</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Conseil</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Conseil, analyse et accompagnement autour de vos enjeux.</p>
+                </div>
+            </article>
+        </div>
+
     </div>
 </section>
 
@@ -117,4 +173,65 @@
         </a>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    (() => {
+        const carousel = document.querySelector('[data-hero-carousel]');
+        if (!carousel) return;
+
+        const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+        const dots = Array.from(carousel.querySelectorAll('.hero-dot'));
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const autoplayInterval = 5000;
+        let activeIndex = 0;
+        let autoplayTimer;
+
+        const showSlide = (index) => {
+            activeIndex = index;
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('opacity-100', slideIndex === activeIndex);
+                slide.classList.toggle('opacity-0', slideIndex !== activeIndex);
+            });
+            dots.forEach((dot, dotIndex) => {
+                const isCurrent = dotIndex === activeIndex;
+                dot.setAttribute('aria-current', String(isCurrent));
+                dot.classList.toggle('w-7', isCurrent);
+                dot.classList.toggle('w-2.5', !isCurrent);
+                dot.classList.toggle('bg-white', isCurrent);
+                dot.classList.toggle('bg-white/50', !isCurrent);
+            });
+        };
+
+        const stopAutoplay = () => window.clearTimeout(autoplayTimer);
+        const scheduleAutoplay = () => {
+            stopAutoplay();
+            if (
+                slides.length < 2
+                || prefersReducedMotion.matches
+                || document.hidden
+                || carousel.matches(':hover')
+                || carousel.contains(document.activeElement)
+            ) return;
+
+            autoplayTimer = window.setTimeout(() => {
+                showSlide((activeIndex + 1) % slides.length);
+                scheduleAutoplay();
+            }, autoplayInterval);
+        };
+
+        dots.forEach((dot, index) => dot.addEventListener('click', () => {
+            showSlide(index);
+            scheduleAutoplay();
+        }));
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', scheduleAutoplay);
+        carousel.addEventListener('focusin', stopAutoplay);
+        carousel.addEventListener('focusout', () => window.setTimeout(scheduleAutoplay, 0));
+        document.addEventListener('visibilitychange', scheduleAutoplay);
+        prefersReducedMotion.addEventListener('change', scheduleAutoplay);
+        scheduleAutoplay();
+    })();
+</script>
 {% endblock %}

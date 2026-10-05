@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')
 
 DEBUG = config('DEBUG', default='False').lower() in ('true', '1', 'yes')
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
