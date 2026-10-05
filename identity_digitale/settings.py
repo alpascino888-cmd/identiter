@@ -2,17 +2,17 @@
 Django settings for identity_digitale project.
 """
 
-import os
 from pathlib import Path
 
 from django.core.exceptions import ImproperlyConfigured
 from dotenv import load_dotenv
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 'yes')
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+DEBUG = config('DEBUG', default='False').lower() in ('true', '1', 'yes')
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
 if not SECRET_KEY:
     raise ImproperlyConfigured(
         'Définissez DJANGO_SECRET_KEY dans votre environnement ou dans le fichier .env.'
@@ -20,10 +20,10 @@ if not SECRET_KEY:
 
 allowed_hosts = {
     host.strip()
-    for host in os.environ.get('ALLOWED_HOSTS', '').split(',')
+    for host in config('ALLOWED_HOSTS', default='').split(',')
     if host.strip()
 }
-render_hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+render_hostname = config('RENDER_EXTERNAL_HOSTNAME', default='')
 if render_hostname:
     allowed_hosts.add(render_hostname)
 if DEBUG:
@@ -71,7 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'identity_digitale.wsgi.application'
 
-database_path = Path(os.environ.get('DATABASE_PATH', BASE_DIR / 'db.sqlite3'))
+database_path = Path(config('DATABASE_PATH', default=BASE_DIR / 'db.sqlite3'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,7 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'fr-fr'
-TIME_ZONE = 'Europe/Paris'
+TIME_ZONE = 'Africa/Conakry'
 USE_I18N = True
 USE_TZ = True
 
@@ -126,7 +127,7 @@ X_FRAME_OPTIONS = 'DENY'
 
 csrf_trusted_origins = {
     origin.strip()
-    for origin in os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
+    for origin in config('CSRF_TRUSTED_ORIGINS', default='').split(',')
     if origin.strip()
 }
 if render_hostname:
