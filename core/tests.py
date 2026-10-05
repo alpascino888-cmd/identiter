@@ -1,6 +1,14 @@
-from django.test import Client, TestCase
+from django.test import Client, TestCase, override_settings
 
 
+@override_settings(
+    STORAGES={
+        'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+        'staticfiles': {
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        },
+    }
+)
 class PublicPagesTests(TestCase):
     def test_public_pages_render_with_group_identity(self):
         pages = ('/', '/a-propos/', '/contact/')
@@ -17,6 +25,12 @@ class PublicPagesTests(TestCase):
 
         self.assertContains(response, 'tel:+224611384485')
         self.assertContains(response, '+224 611 384 485')
+
+    def test_site_displays_the_provided_logo(self):
+        response = self.client.get('/')
+
+        self.assertContains(response, 'img/groupe-omega-embleme.png')
+        self.assertContains(response, 'img/groupe-omega-logo.png')
 
     def test_contact_form_is_protected_by_csrf_token(self):
         client = Client(enforce_csrf_checks=True)

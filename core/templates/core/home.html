@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Accueil — Groupe Omega et Partenaires{% endblock %}
 {% block meta_description %}Découvrez Groupe Omega et Partenaires, prestataire multisectoriel en BTP, énergie, mines, immobilier, négoce et conseil.{% endblock %}
@@ -93,11 +94,8 @@
             </a>
         </div>
         <div class="relative">
-            <div class="aspect-[4/3] rounded-2xl gradient-bg flex items-center justify-center shadow-2xl">
-                <div class="text-center text-white p-8">
-                    <div class="text-6xl font-bold mb-2 opacity-90">Ω</div>
-                    <p class="text-blue-100 text-lg">Groupe Omega et Partenaires</p>
-                </div>
+            <div class="aspect-[4/3] rounded-2xl bg-white border border-slate-200 flex items-center justify-center p-5 sm:p-8 shadow-2xl">
+                <img src="{% static 'img/groupe-omega-logo.png' %}" alt="Logo Omega et Partners" width="740" height="450" class="w-full max-w-[34rem] h-auto object-contain">
             </div>
             <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-500/20 rounded-2xl -z-10"></div>
             <div class="absolute -top-4 -left-4 w-16 h-16 bg-primary-200/50 rounded-xl -z-10"></div>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Groupe Omega et Partenaires{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}Groupe Omega et Partenaires : BTP, énergie, mines, immobilier, négoce et conseil.{% endblock %}">
+    <link rel="icon" type="image/png" href="{% static 'img/groupe-omega-embleme.png' %}">
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -83,11 +85,9 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <a href="{% url 'core:home' %}" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-                        <span class="text-white font-bold text-lg">O</span>
-                    </div>
-                    <span class="font-semibold text-lg text-slate-900 tracking-tight">Groupe Omega</span>
+                <a href="{% url 'core:home' %}" class="flex items-center gap-3 group min-w-0">
+                    <img src="{% static 'img/groupe-omega-embleme.png' %}" alt="" width="44" height="44" class="w-11 h-11 object-contain flex-shrink-0 transition-transform group-hover:scale-105">
+                    <span class="font-semibold text-sm sm:text-base text-slate-900 tracking-tight leading-tight">Groupe Omega et Partenaires</span>
                 </a>
                 
                 <!-- Desktop Menu -->
@@ -146,10 +146,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                            <span class="text-white font-bold">O</span>
-                        </div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="{% static 'img/groupe-omega-embleme.png' %}" alt="" width="48" height="48" class="w-12 h-12 object-contain flex-shrink-0">
                         <span class="font-semibold text-white">Groupe Omega et Partenaires</span>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed">
@@ -168,6 +166,7 @@
                     <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h3>
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="tel:+224611384485" class="hover:text-white transition-colors">+224 611 384 485</a></li>
+                        <li><a href="mailto:omega.groupe@gmail.com" class="hover:text-white transition-colors">omega.groupe@gmail.com</a></li>
                     </ul>
                 </div>
             </div>

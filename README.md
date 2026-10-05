@@ -70,6 +70,7 @@ Pour `check --deploy`, activez les réglages de production (`DEBUG=False`) et d�
 core/                  Pages et vues du site
 identity_digitale/     Configuration Django et sécurité
 static/                Fichiers statiques sources
+static/img/            Emblème, logo complet et favicon du groupe
 templates/             Gabarit commun
 render.yaml            Blueprint de déploiement Render
 requirements.txt       Dépendances Python épinglées
